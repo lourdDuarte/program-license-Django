@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+
+{% block head_content %}
+    <title>Solicitud de licencia</title>   
+{% endblock head_content %}
+    
+
+{% block container %}
+
+<div class="container bootstrap snippets bootdey">
+    
+  <hr>
+  <div class="row" style="padding-top: 70px;">
+    <!-- left column -->
+      <div class="col-md-3">
+        <div class="text-center">
+        
+            <h1 class="text-primary">New request</h1>  
+        
+        </div>
+      </div>
+  
+      <!-- edit form column -->
+      <div class="col-md-9 personal-info">
+
+    <div style="width:70%; height: 100%; ">
+      
+      <form method="POST" action="{% url 'request_license' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        {% if form.errors %}
+          <div class="alert alert-danger" role="alert">
+            {{ form.errors }}
+          </div>
+        {% endif %}
+          
+          <div class="row">
+            <div class="col">
+              <input type="text" class="form-control" name="first_name" id="first_name" value="{{request.user.first_name}}">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" name="last_name" id="last_name" value="{{request.user.last_name}}">
+            </div>
+            
+          </div><br><br>
+          <div class="row">
+                  <div class="col">
+                      <div class="input-group-append">
+                          <span class="input-group-text" id="basic-addon2">Desde</span>
+                      </div><br>
+                      <input type="date" class="form-control" name="date_desde" id="date_desde">
+                  </div>
+                  <div class="col">
+                      <div class="input-group-append">
+                          <span class="input-group-text" id="basic-addon2">Hasta</span>
+                      </div><br>
+                      <input type="date" class="form-control" name ="date_hasta" id="date_hasta">
+                  </div>
+            </div><br><br>
+            <div class="row">
+              <div class="col">
+                <div class="input-group-append">
+                  <span class="input-group-text" id="basic-addon2">Dias a solicitar</span>
+                  <div class="col">
+                    <input type="text" class="form-control" name="usufructuado" id="usufructuado" >
+                  </div>
+                </div>
+              </div>
+            </div>
+              <br><br>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Descripcion</span>
+              </div>
+              <textarea class="form-control" aria-label="With textarea" name="descripcion" id="descripcion"></textarea>
+            </div>
+            <button class="btn btn-primary btn-block mt-5" type="submit">Send request</button>
+      </form>
+      
+    </div>
+  </div>
+</div>
+{% endblock container %}
+    
