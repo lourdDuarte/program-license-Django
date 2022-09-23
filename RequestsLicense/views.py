@@ -6,20 +6,20 @@ from RequestsLicense.models import RequestsLicense
 # Create your views here.
 @login_required
 def request_license(request):
-    req = request.user.perfil
+    employee = request.user.profile.employee
     if request.method == 'POST':
         form = RequestLicenseForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
             print("formulario"+str(data))
-            new_request = RequestsLicense()
-            new_request.empleado = req
-            new_request.nombre = data['last_name']
-            new_request.apellido = data['first_name']
-            new_request.usufructuados = data['usufructuado']
-            new_request.fecha_desde = data['date_desde']
-            new_request.fecha_hasta = data['date_hasta'] 
-            new_request.descripcion = data['descripcion']
+            new_request = RequestsLicense(employee = employee)
+            new_request.last_name = data['last_name']
+            new_request.fist_name = data['first_name']
+            new_request.usufruct = data['usufruct']
+            new_request.date_form = data['date_form']
+            new_request.date_to = data['date_to']
+            new_request.description = data['description']
+
             new_request.save()
 
         

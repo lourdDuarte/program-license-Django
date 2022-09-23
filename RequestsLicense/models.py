@@ -9,8 +9,8 @@ class RequestsLicense(models.Model):
     last_name = models.CharField(max_length=25)
     fist_name = models.CharField(max_length=25)
     usufruct = models.CharField(max_length=25) #lo que se pide
-    date_form = models.DateField(auto_now=False)
-    date_to = models.DateField(auto_now=False)
+    date_form = models.CharField(max_length=25)
+    date_to = models.CharField(max_length=25)
     description = models.CharField(max_length=100)
     status = models.BooleanField(default=False)
 
