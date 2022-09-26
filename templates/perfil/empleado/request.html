@@ -4,6 +4,7 @@
 {% block head_content %}
     <title>Solicitud de licencia</title>  
     <script src="http://momentjs.com/downloads/moment.min.js"></script>
+
 {% endblock head_content %}
     
 
@@ -23,18 +24,19 @@
       </div>
   
       <!-- edit form column -->
-      <div class="col-md-9 personal-info">
+    <div class="col-md-9 personal-info">
 
-    <div style="width:70%; height: 100%; ">
-      
-      <form method="POST" action="{% url 'request_license' %}" enctype="multipart/form-data">
-        {% csrf_token %}
+      <div style="width:70%; height: 100%; ">
         
-        {% if form.errors %}
-          <div class="alert alert-danger" role="alert">
-            {{ form.errors }}
-          </div>
-        {% endif %}
+        <form  method="POST" role="form" action="{% url 'request_license' %}" enctype="multipart/form-data">
+          {% csrf_token %}
+          {% if form.errors %}
+
+            <div class="alert alert-danger" role="alert">
+              {{ form.errors }}
+            </div>
+          
+          {% endif %}
           
           <div class="row">
             <div class="col">
@@ -46,56 +48,86 @@
             
           </div><br><br>
           <div class="row">
-                  <div class="col">
-                      <div class="input-group-append">
-                          <span class="input-group-text" id="basic-addon2">Desde</span>
-                      </div><br>
-                      <input type="date" class="form-control" name="date_form" id="date_form">
-                  </div>
-                  <div class="col">
-                      <div class="input-group-append">
-                          <span class="input-group-text" id="basic-addon2">Hasta</span>
-                      </div><br>
-                      <input type="date" class="form-control" name ="date_to" id="date_to" onchange="days()">
-                  </div>
-            </div><br><br>
-            <div class="row">
-              <div class="col">
-                <div class="input-group-append">
-                  <span class="input-group-text" id="basic-addon2">Dias a solicitar</span>
-                  <div class="col">
-                    <input type="text" class="form-control" name="usufruct" id="usufruct"  >
-                  </div>
+            <div class="col">
+              <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">Desde</span>
+              </div><br>
+              <input type="date" class="form-control" name="date_form" id="date_form" onchange="data_days()" >
+            </div>
+            <div class="col">
+              <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">Hasta</span>
+              </div><br>
+              <input type="date" class="form-control" name ="date_to" id="date_to" onchange="data_days()">
+            </div>
+          </div><br><br>
+          <div class="row">
+            <div class="col">
+              <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">Dias a solicitar</span>
+                <div class="col">
+                  <input type="text" class="form-control" name="usufruct" id="usufruct"  >
                 </div>
               </div>
             </div>
-              <br><br>
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Descripcion</span>
-              </div>
-              <textarea class="form-control" aria-label="With textarea" name="description" id="description"></textarea>
+          </div>
+          <br><br>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Descripcion</span>
             </div>
-            <button class="btn btn-primary btn-block mt-5" type="submit">Send request</button>
-      </form>
-      
+            <textarea class="form-control" aria-label="With textarea" name="description" id="description"></textarea>
+          </div>
+                    
+          <button class="btn btn-primary btn-block mt-5" type="submit">Send request</button>  
+        </form>
+          
+        
+        
+      </div>
     </div>
   </div>
 </div>
 
 <script>
-  function days(){
-    var date_one =$('#date_form').val();
-    var date_two =$('#date_to').val();
+
+
+  function data_days() {
+ 
     var usufruct = document.getElementById('usufruct')
+      date_form = moment($('#date_form').val());
+      date_to = moment($('#date_to').val());
+      diff_days = parseInt(date_to.diff(date_form, 'days')) + parseInt(1); 
+      sab = 0
+      dom = 0
+      num_dia = (parseInt(date_form.isoWeekday()));
     
-    var date_form = moment(date_one);
-    var date_to = moment(date_two);
+    for(i=0;i<=diff_days;i++){
+      if(num_dia == 6){
+        sab++
+      }
+      if(num_dia == 7){
+        dom++
+        num_dia=0;
+      }
+      num_dia++
+      
+    }
+    if (!date_form.isAfter(date_to)){
+        days = diff_days - (sab + dom)
+        if (isNaN(days)){
+          usufruct.value ="...."
+        }else{
+          usufruct.value = days
+        }
+    }else{
+      usufruct.value ="Formato de fechas invalido!"
+    }
+      
+    
+    
+}
 
-    var days =(date_to.diff(date_form, 'days')) - 2;
-    usufruct.value = days
-
-  }
 </script>
 
 {% endblock container %}
