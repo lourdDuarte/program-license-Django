@@ -1,1 +1,44 @@
 {% extends 'base.html' %}
+
+
+{% block head_content %}
+
+<title>Load data</title>
+    
+{% endblock head_content %}
+
+
+{% block container %}
+<div class="container bootstrap snippets bootdey">
+    
+    <hr>
+    <div class="row" style="padding-top: 35px;">
+      <!-- left column -->
+        <div class="col-md-3">
+            <div class="text-center">
+          
+              <h1 class="text-primary">Detail</h1>  
+          
+            </div>
+        </div>
+    
+
+        <div class="col-md-9 personal-info">
+
+            <div style="width:70%; height: 100%; ">
+                <select style="width: 250px; text-align:center" class="form-select" aria-label="Default select example">
+                    <option selected>Select person</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+</div>
+    
+{% endblock container %}
+    
+
+    

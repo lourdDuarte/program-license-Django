@@ -3,8 +3,6 @@ from django.contrib.auth.decorators import login_required
 from RequestsLicense.forms import RequestLicenseForm
 from RequestsLicense.models import RequestsLicense
 
-import smtplib
-
 # Create your views here.
 @login_required
 def request_license(request):
@@ -13,7 +11,6 @@ def request_license(request):
         form = RequestLicenseForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
-            print("formulario"+str(data))
             new_request = RequestsLicense(employee = employee)
             new_request.last_name = data['last_name']
             new_request.fist_name = data['first_name']
@@ -24,31 +21,19 @@ def request_license(request):
 
             new_request.save()
             
-            last_name = data['last_name']
-            first_name = data['first_name']
+       
+    else:
+        form = RequestLicenseForm()
+    
 
-            # # mail notice
-            # m = ("La persona: "+ last_name + "," + first_name + " acaba de enviar una nueva solicitud " +
-            # "de licencia, ingresar al sistema para confirmarlo. ")
-
-
-            # message = str(m)
-            # destino = 'lourdes123duarte@gmail.com'
-
-            # SUBJECT = "Nueva solicitud de licencia"
-            # TEXT = message
-
-            # text = "Subject: {}\n\n{}".format(SUBJECT, TEXT)
-
-            # smtpserver = smtplib.SMTP("smtp.gmail.com", 587)
-            # smtpserver.ehlo()
-            # smtpserver.starttls()
-            # smtpserver.ehlo()
-            # smtpserver.login('mail.diplomatura@gmail.com','piucomltoimebgdw')
-
-            #     # Enviamos el mensaje
-            # smtpserver.sendmail('mail.licenses@gmail.com', destino, text)
-            #     # Cerramos la conexion
-            # smtpserver.close()
+    return render(
+        request=request,
+        template_name='perfil/empleado/request.html',
+        context={
+            'employee': employee,
+            'user': request.user.profile.employee,
+            'form': form
+        }
+    )
         
-    return render (request, 'perfil/empleado/request.html')
+        

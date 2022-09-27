@@ -9,6 +9,7 @@ from django.contrib.auth import views as auth_views
 from profile import views 
 from employee import views as emp
 from RequestsLicense import views as license
+from employeeDetail import views as detail
 
 urlpatterns = [
     # vistas generales
@@ -28,6 +29,7 @@ urlpatterns = [
     path('dashboard/', emp.dashboard_view, name='dashboard'),
     path('solicitud/', license.request_license, name='request_license'),
     path('profile/',emp.update_profile,name="update_profile"),
+    path('load-data/', detail.load_data, name='load-data')
 
     # vistas admin
 ] 

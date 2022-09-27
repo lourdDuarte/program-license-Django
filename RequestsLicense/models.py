@@ -8,7 +8,7 @@ class RequestsLicense(models.Model):
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
     last_name = models.CharField(max_length=25)
     fist_name = models.CharField(max_length=25)
-    usufruct = models.CharField(max_length=25) #lo que se pide
+    usufruct = models.IntegerField() #lo que se pide
     date_form = models.CharField(max_length=25)
     date_to = models.CharField(max_length=25)
     description = models.CharField(max_length=100)

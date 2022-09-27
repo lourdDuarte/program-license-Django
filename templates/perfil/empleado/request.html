@@ -13,7 +13,7 @@
 <div class="container bootstrap snippets bootdey">
     
   <hr>
-  <div class="row" style="padding-top: 70px;">
+  <div class="row" style="padding-top: 35px;">
     <!-- left column -->
       <div class="col-md-3">
         <div class="text-center">
@@ -30,13 +30,15 @@
         
         <form  method="POST" role="form" action="{% url 'request_license' %}" enctype="multipart/form-data">
           {% csrf_token %}
+
           {% if form.errors %}
 
             <div class="alert alert-danger" role="alert">
               {{ form.errors }}
             </div>
-          
+      
           {% endif %}
+          
           
           <div class="row">
             <div class="col">
@@ -79,8 +81,10 @@
             <textarea class="form-control" aria-label="With textarea" name="description" id="description"></textarea>
           </div>
                     
-          <button class="btn btn-primary btn-block mt-5" type="submit">Send request</button>  
+          <button class="btn btn-primary btn-block mt-5" type="submit">Send request</button>
+          
         </form>
+
           
         
         
