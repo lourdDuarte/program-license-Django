@@ -29,7 +29,7 @@ urlpatterns = [
     path('dashboard/', emp.dashboard_view, name='dashboard'),
     path('solicitud/', license.request_license, name='request_license'),
     path('profile/',emp.update_profile,name="update_profile"),
-    path('load-data/', detail.load_data, name='load-data')
+    path('load-data/', detail.load_data, name='data')
 
     # vistas admin
 ] 

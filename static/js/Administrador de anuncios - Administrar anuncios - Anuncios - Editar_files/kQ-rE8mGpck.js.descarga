@@ -1,0 +1,3 @@
+if (self.CavalryLogger) { CavalryLogger.start_js_script(document.currentScript); }/*FB_PKG_DELIM*/
+
+__d("AdsLeadGenFormEditorCreativesValidationFields",["$InternalEnum"],function(a,b,c,d,e,f){"use strict";a=b("$InternalEnum")({TELL_YOUR_STORY:"tell_your_story",HERO_BANNER_PHOTO:"hero_banner_photo",HEADLINE:"headline",OVERVIEW_CONTENT:"overview_content"});c=a;f["default"]=c},66);

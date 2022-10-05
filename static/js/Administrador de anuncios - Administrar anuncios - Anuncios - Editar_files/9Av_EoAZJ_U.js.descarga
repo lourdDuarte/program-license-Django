@@ -1,0 +1,4 @@
+if (self.CavalryLogger) { CavalryLogger.start_js_script(document.currentScript); }/*FB_PKG_DELIM*/
+
+__d("AdsCMLogUtils",[],function(a,b,c,d,e,f){"use strict";function a(a,b,c){}function b(a,b){}function c(a,b){}function d(a,b){}function e(a){}function g(a){}function h(a){}f.log=a;f.logFatal=b;f.logException=c;f.logUserError=d;f.logAPIError=e;f.logAPIRetry=g;f.logAPISuccess=h},66);
+__d("AdsEffectiveStatus",[],function(a,b,c,d,e,f){e.exports=Object.freeze({PENDING:"PENDING",ACTIVE:"ACTIVE",PAUSED:"PAUSED",DELETED:"DELETED",PENDING_REVIEW:"PENDING_REVIEW",DISAPPROVED:"DISAPPROVED",PREAPPROVED:"PREAPPROVED",PENDING_BILLING_INFO:"PENDING_BILLING_INFO",CAMPAIGN_PAUSED:"ADSET_PAUSED",ADGROUP_PAUSED:"AD_PAUSED",CAMPAIGN_GROUP_PAUSED:"CAMPAIGN_PAUSED",ARCHIVED:"ARCHIVED",ADSET_PAUSED:"INVALID_STATUS",ARCHIVED_IN_DRAFT:"ARCHIVED_IN_DRAFT",IN_PROCESS:"IN_PROCESS",WITH_ISSUES:"WITH_ISSUES"})},null);

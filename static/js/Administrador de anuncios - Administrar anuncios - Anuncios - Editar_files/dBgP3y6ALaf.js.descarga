@@ -1,0 +1,9 @@
+if (self.CavalryLogger) { CavalryLogger.start_js_script(document.currentScript); }/*FB_PKG_DELIM*/
+
+__d("AdsEditorDebugMode.flow",["$InternalEnum"],function(a,b,c,d,e,f){"use strict";a=b("$InternalEnum")({Off:"off",InspectELF:"elf-inspect",ShowAllELF:"elf-all"});f.AdsEditorDebugMode=a},66);
+__d("AdsEditorDebugProviderPlugin",["AdsEditorDebugMode.flow"],function(a,b,c,d,e,f,g){"use strict";a={initialState:{debugMode:d("AdsEditorDebugMode.flow").AdsEditorDebugMode.Off}};b=a;g["default"]=b},98);
+__d("AdsEditorDebugProvider",["AdsEditorDebugProviderPlugin","Laminar"],function(a,b,c,d,e,f){"use strict";e.exports=b("Laminar").__createProvider(b("AdsEditorDebugProviderPlugin"),"AdsEditorDebugProviderPlugin")},null);
+__d("AdsEditorSetDebugModeReducerPlugin",[],function(a,b,c,d,e,f){"use strict";a={reduce:function(a,b){b=b.debugMode;return babelHelpers["extends"]({},a,{debugMode:b})}};b=a;f["default"]=b},66);
+__d("AdsEditorSetDebugModeAction",["AdsEditorDebugProvider","AdsEditorSetDebugModeReducerPlugin","Laminar"],function(a,b,c,d,e,f){"use strict";a=b("Laminar").__createAction(function(){return[b("Laminar").__createReducer(b("AdsEditorSetDebugModeReducerPlugin"),b("AdsEditorDebugProvider"),{},"")]},function(){return[]},"AdsEditorSetDebugModeActionPlugin");e.exports=a},null);
+__d("useCopyToClipboard",["Clipboard","react","useTimeout"],function(a,b,c,d,e,f,g){"use strict";b=d("react");var h=b.useCallback,i=b.useState;function a(a,b){var e=i(!1),f=e[0],g=e[1];e=c("useTimeout")(a,!1);a=e.pending;var j=e.restart;e=h(function(a){a=(a=a)!=null?a:b;a!=null&&(d("Clipboard").copy(a)?j():g(!0))},[j,b,g]);return{copied:a,copy:e,error:f}}g["default"]=a},98);
+__d("JSResourceReference",["JSResourceReferenceImpl"],function(a,b,c,d,e,f,g){g["default"]=c("JSResourceReferenceImpl")},98);

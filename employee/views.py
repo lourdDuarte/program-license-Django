@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.views.generic import ListView
 from profile.forms import ProfileForm
+from employee.models import Employee
 
 # Create your views here.
 @login_required
@@ -35,4 +37,7 @@ def update_profile(request):
             'form': form
         }
     )
+
+
+
     
