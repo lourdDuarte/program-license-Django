@@ -1,5 +1,6 @@
 
 ##django
+from unicodedata import name
 from django.contrib import admin
 from django.urls import path, reverse_lazy
 from django.conf.urls.static import static
@@ -29,7 +30,7 @@ urlpatterns = [
     path('dashboard/', emp.dashboard_view, name='dashboard'),
     path('solicitud/', license.request_license, name='request_license'),
     path('profile/',emp.update_profile,name="update_profile"),
-    path('load-data/', detail.load_data, name='data')
-
+    path('load-data/', detail.view_data, name='data'),
+    path('update-detail/<str:pk>/', detail.update_detail, name="update-detail"),
     # vistas admin
 ] 

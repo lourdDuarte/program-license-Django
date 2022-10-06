@@ -10,65 +10,78 @@
 
 {% block container %}
 <div class="container bootstrap snippets bootdey">
-    
-    <hr>
-    <div class="row" style="padding-top: 35px;">
-    
+    <div style="text-align: center;">
+        <hr>
+        
 
-        <div class="col-md-9 personal-info" id="div-search">
-
-            <form class="form-horizontal" role="form" enctype="multipart/form-data" method="POST" action="{% url 'data' %} ">
+            <form enctype="multipart/form-data" method="POST" action="{% url 'data' %} " style="width:100%; height: 100px;">
                 {% csrf_token %}
                 <div style="width:70%; height: 100%; ">
                     <select style="width: 250px; text-align:center" name="employee" id ="empployee" class="form-select" aria-label="Default select example">
-                        <option value="0">person</option>
+                        <option value="0">Person</option>
                         
                         {% for emp in employee  %}
                             <option value='{{emp.id}}'>{{emp.profile.user.first_name}} {{emp.profile.user.last_name}} </option> 
                         {% endfor %}
                             
                     </select>
+                    <button style="width: 200px; margin:0 auto; top: -30px; position: relative;" class="btn btn-primary btn-block mt-5" type="submit">Buscar</button>
                 </div>
-                <button style="width: 200px; left: 12px;" class="btn btn-primary btn-block mt-5" type="submit">Buscar</button>
+                
             </form>
-        </div>
-        <br><br><br>
-        <div class="card-body" style="position:relative; top: -200">
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>Fecha de solicitud</th>
-                            <th>Estado</th>
-                           
-                        </tr>
-                    </thead>
-                    <tfoot>
-                        <tr>
-                            <th>Fecha de solicitud</th>
-                            <th>Estado</th>
-                        </tr>
-                    </tfoot>
-                    
-                    {% for d in detail %}
-                        <tbody>
+    </div>
+    <div style="padding-top: 200px;">
+        
+        {% if detail %}
+            <div class="card-body" style="position:relative; top: -200">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
                             <tr>
-                                <td>{{d.antiquity}}</td>
-                                <td>{{d.year}}</td>
-                                
-                                
-                            </tr>
+                                <th>Year</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Action</th>
                             
-                        </tbody>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Year</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
                         
-                    {% endfor %}
+                        {% for d in detail %}
+                            <tbody>
+                                <tr>
+                                    <td>{{d.year}}</td>
+                                    <td>{{d.employee.profile.user.first_name}}</td>
+                                    <td>{{d.employee.profile.user.last_name}}</td>
+                                    <td>
+                                        <a href="{% url 'update-detail' d.id %}">
+                                            <i class="fa-solid fa-file-pen"></i>
+                                        </a>
+                                    </td>
+                                    
+                                    
+                                </tr>
+                                
+                            </tbody>
+                            
+                        {% endfor %}
+                            
                         
-                    
-                </table>
+                    </table>
+                </div>
             </div>
-        </div>
-    
-    
+            
+        {% endif %}
+            
+        
+        
     </div>
     
 </div>

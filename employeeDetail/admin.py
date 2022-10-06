@@ -8,8 +8,8 @@ from employeeDetail.models import EmployeeDetail
 @admin.register(EmployeeDetail)
 class EmployeeDetailAdmin (admin.ModelAdmin):
    pass
-    # list_display=[
-    #     'perfil',
-    #     'numerodocumento',
+   list_display=[
+        'id',
+        'employee',
         
-    # ]
+    ]
