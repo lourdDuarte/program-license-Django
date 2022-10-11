@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+
+{% block head_content %}
+
+<title>New Detail</title>
+    
+{% endblock head_content %}
+
+
+{% block container %}
+<div class="container bootstrap snippets bootdey">
+    
+    <hr>
+  <div class="row" style="padding-top: 35px;">
+    <!-- left column -->
+    <div class="col-md-3">
+      <div class="text-center">
+        
+        <h1 class="text-primary">Profile</h1>
+        
+        
+      </div>
+    </div>
+    
+    <!-- edit form column -->
+    <div class="col-md-9 personal-info">
+      
+      <form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="{% url 'update_profile' %} ">
+        {% csrf_token %}
+        {% if form.errors %}
+
+          <div class="alert alert-danger" role="alert">
+            {{ form.errors }}
+          </div>
+        
+        {% endif %}
+        <select style="width: 250px; text-align:center" name="employee" id ="empployee" class="form-select" aria-label="Default select example">
+            <option value="0">Person</option>
+            
+            {% for emp in employee  %}
+                <option value='{{emp.id}}'>{{emp.profile.user.first_name}} {{emp.profile.user.last_name}} </option> 
+            {% endfor %}
+                
+        </select>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">First name:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" value="{{user.last_name}}" name="last_name" id="last_name">
+          </div>
+        </div>
+        
+        <button style="width: 200px; left: 12px; position: relative; " class="btn btn-primary btn-block mt-5" type="submit">Update</button>
+      </form>
+    </div>
+</div>
+</div>
+<hr>
+    
+{% endblock container %}
+    

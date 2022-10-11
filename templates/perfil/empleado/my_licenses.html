@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block head_content %}
+    <title>My licenses</title>
+{% endblock head_content %}
+
+
+{% block container %}
+<h2 style="text-align: center; color:rgb(34, 53, 231); padding-top:30px">{{request.user.first_name}}, {{request.user.last_name}}</h2>
+<div style="padding-top: 200px;">
+        
+    {% if detail %}
+        <div class="card-body" style="position:relative; top: -150">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Year</th>
+                            <th>Antiquity</th>
+                            <th>Leave days</th>
+                            <th>Remainder</th>
+                            <th>Status</th>
+                        
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Year</th>
+                            <th>Antiquity</th>
+                            <th>Leave days</th>
+                            <th>Remainder</th>
+                            <th>Status</th>
+                        </tr>
+                    </tfoot>
+                    
+                    {% for d in detail %}
+                        <tbody>
+                            <tr>
+                                <td>{{d.year}}</td>
+                                <td>{{d.antiquity}}</td>
+                                <td>{{d.leave_days}}</td>
+                                <td>{{d.remainder}} </td>
+                                
+                                
+                                
+                            </tr>
+                            
+                        </tbody>
+                        
+                    {% endfor %}
+                        
+                    
+                </table>
+            </div>
+        </div>
+        
+    {% endif %}
+        
+    
+    
+</div>
+    
+{% endblock container %}
+    
+    

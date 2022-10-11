@@ -4,6 +4,7 @@
 {% block head_content %}
 
 <title>Load data</title>
+
     
 {% endblock head_content %}
 
@@ -12,12 +13,13 @@
 <div class="container bootstrap snippets bootdey">
     <div style="text-align: center;">
         <hr>
-        
-
+        <a href="{% url 'new_detail' %}" >
+            <button style="width: 200px; margin: 0 auto; left: 40%; position: relative;" class="btn-detail" >New Detail</button>
+        </a>
             <form enctype="multipart/form-data" method="POST" action="{% url 'data' %} " style="width:100%; height: 100px;">
                 {% csrf_token %}
                 <div style="width:70%; height: 100%; ">
-                    <select style="width: 250px; text-align:center" name="employee" id ="empployee" class="form-select" aria-label="Default select example">
+                    <select style="width: 250px" name="employee" id ="empployee" class="select" >
                         <option value="0">Person</option>
                         
                         {% for emp in employee  %}
@@ -25,7 +27,7 @@
                         {% endfor %}
                             
                     </select>
-                    <button style="width: 200px; margin:0 auto; top: -30px; position: relative;" class="btn btn-primary btn-block mt-5" type="submit">Buscar</button>
+                    <button style="width: 150px; margin:0 auto; left:-205px; top: 60px; position: relative;" class="btn-detail" type="submit">Buscar</button>
                 </div>
                 
             </form>
