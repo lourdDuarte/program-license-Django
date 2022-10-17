@@ -7,7 +7,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.auth import views as auth_views
 # polls
-from profile import views 
+from profile import views as pf
 from employee import views as emp
 from RequestsLicense import views as license
 from employeeDetail import views as detail
@@ -15,9 +15,9 @@ from employeeDetail import views as detail
 urlpatterns = [
     # vistas generales
     path('admin/', admin.site.urls),
-    path ('users/login/', views.login_view, name='login'),
-    path('signup/',views.signup_view, name='signup'),
-    path('logout/', views.logout_view, name = 'logout'),
+    path ('users/login/', pf.login_view, name='login'),
+    path('signup/',pf.signup_view, name='signup'),
+    path('logout/', pf.logout_view, name = 'logout'),
     path(
         'change-password/',
         auth_views.PasswordChangeView.as_view(
@@ -32,7 +32,9 @@ urlpatterns = [
     path('profile/',emp.update_profile,name="update_profile"),
     path('load-data/', detail.search_datail, name='data'),
     path('update-detail/<str:pk>/', detail.update_detail, name="update-detail"),
-    path('licenses/',detail.view_detail, name="licenses"),
-    path('new-detail/', detail.new_detail,name='new_detail'),
+    path('new-detail/', detail.add_detail,name='new_detail'),
     # vistas admin
+    path('dashboard_admin/', pf.dashboard_admin, name='dashboard_admin'),
+ 
+
 ] 

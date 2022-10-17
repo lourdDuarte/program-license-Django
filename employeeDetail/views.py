@@ -39,12 +39,20 @@ def update_detail(request,pk):
    context = {'form':form}
    return render (request,'data/update_detail.html',context)
 
-def view_detail(request):
-    employee = request.user.profile.employee
-    detail = EmployeeDetail.objects.all().filter(employee=employee).order_by('year')
-    context = {'detail':detail}
 
-    return render (request,'perfil/empleado/my_licenses.html',context)
+def add_detail(request):
+    employee = request.user.profile.employee
+    all_employee = Employee.objects.all()
+    
+    if request.method == 'POST':
+        form = FormDetail(request.POST)
+        if form.is_valid:
+            form.save()
+            return redirect('data')
+
+    context = {'detail':all_employee}
+    return render (request,'data/new_detail.html',context)
+
 
 def new_detail(request):
     employee = Employee.objects.all()

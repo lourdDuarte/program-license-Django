@@ -17,7 +17,7 @@
     <div class="col-md-3">
       <div class="text-center">
         
-        <h1 class="text-primary">Profile</h1>
+        <h1 class="text-primary">New Detail</h1>
         
         
       </div>
@@ -26,31 +26,52 @@
     <!-- edit form column -->
     <div class="col-md-9 personal-info">
       
-      <form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="{% url 'update_profile' %} ">
+      <form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" >
         {% csrf_token %}
         {% if form.errors %}
 
           <div class="alert alert-danger" role="alert">
             {{ form.errors }}
           </div>
-        
         {% endif %}
-        <select style="width: 250px; text-align:center" name="employee" id ="empployee" class="form-select" aria-label="Default select example">
-            <option value="0">Person</option>
-            
-            {% for emp in employee  %}
-                <option value='{{emp.id}}'>{{emp.profile.user.first_name}} {{emp.profile.user.last_name}} </option> 
-            {% endfor %}
+          <div class="form-group">
+            <div class="col-lg-8">
+              <select style="width: 250px; text-align:center" name="employee" id ="empployee" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                <option value="0">Select person</option>
                 
-        </select>
+                {% for employee in detail  %}
+                    <option value='{{employee.id}}'>{{employee.profile.user.first_name}} {{employee.profile.user.last_name}} </option> 
+                {% endfor %}
+                    
+              </select>
+            </div>
+          </div>
         <div class="form-group">
-          <label class="col-lg-3 control-label">First name:</label>
+          <label class="col-lg-3 control-label">Antiquity:</label>
           <div class="col-lg-8">
-            <input class="form-control" type="text" value="{{user.last_name}}" name="last_name" id="last_name">
+            <input class="form-control" type="text" name="antiquity" id="antiquity">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Leave days:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" name="leave_days" id="leave_days">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Remainder:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" name="remainder" id="remainder">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Year:</label>
+          <div class="col-lg-8">
+            <input class="form-control" type="text" name="year" id="year">
           </div>
         </div>
         
-        <button style="width: 200px; left: 12px; position: relative; " class="btn btn-primary btn-block mt-5" type="submit">Update</button>
+        <button style="width: 200px; left: 12px; position: relative; " class="btn-detail" type="submit">Save</button>
       </form>
     </div>
 </div>

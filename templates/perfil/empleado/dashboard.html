@@ -78,52 +78,51 @@
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">DataTables Report</h6>
     </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th>Año</th>
-                        <th>Dias otorgados</th>
-                        <th>Dias disponibles</th>
-                        <th>Estado</th>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <tr>
-                        <th>Año</th>
-                        <th>Dias otorgados</th>
-                        <th>Dias disponibles</th>
-                        <th>Estado</th>
-                    </tr>
-                </tfoot>
-                <tbody>
-                    <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
+    {% if detail %}
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Year</th>
+                            <th>Antiquity</th>
+                            <th>Leave days</th>
+                            <th>Remainder</th>
+                            <th>Status</th>
                         
-                    </tr>
-                    <tr>
-                        <td>Garrett Winters</td>
-                        <td>Accountant</td>
-                        <td>Tokyo</td>
-                        <td>63</td>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Year</th>
+                            <th>Antiquity</th>
+                            <th>Leave days</th>
+                            <th>Remainder</th>
+                            <th>Status</th>
+                        </tr>
+                    </tfoot>
+                    
+                    {% for d in detail %}
+                        <tbody>
+                            <tr>
+                                <td>{{d.year}}</td>
+                                <td>{{d.antiquity}}</td>
+                                <td>{{d.leave_days}}</td>
+                                <td>{{d.remainder}} </td>
+                                
+                                
+                                
+                            </tr>
+                            
+                        </tbody>
                         
-                    </tr>
-                    <tr>
-                        <td>Ashton Cox</td>
-                        <td>Junior Technical Author</td>
-                        <td>San Francisco</td>
-                        <td>66</td>
-                       
-                    </tr>
+                    {% endfor %}
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
+    {% endif %}
 </div>
 
 

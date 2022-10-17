@@ -15,7 +15,10 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user:
             login(request, user)
-            return redirect('dashboard')
+            if user.is_superuser:
+                return redirect('dashboard_admin')
+            else:
+                return redirect('dashboard')
         else:
             return render(request, 'login.html', {'error': 'Invalid username and password'})
 
@@ -66,7 +69,8 @@ def signup_view(request):
     return render (request,'register.html')
 
 
-
+def dashboard_admin(request):
+    return render(request, 'perfil/admin/dashboard_admin.html')
 
 
 

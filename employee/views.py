@@ -3,11 +3,18 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView
 from profile.forms import ProfileForm
 from employee.models import Employee
+from employeeDetail.models import EmployeeDetail
 
 # Create your views here.
 @login_required
 def dashboard_view(request):
-    return render(request, 'perfil/empleado/dashboard.html')
+    employee = request.user.profile.employee
+    detail = EmployeeDetail.objects.all().filter(employee=employee).order_by('year')
+    context = {'detail':detail}
+
+    return render (request,'perfil/empleado/dashboard.html',context)
+
+   
 
 
     
