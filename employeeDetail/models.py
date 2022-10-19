@@ -10,7 +10,8 @@ class EmployeeDetail(models.Model):
     remainder = models.CharField(max_length=25)
     year = models.CharField(max_length=25)
     created = models.DateField(auto_now_add=True)
-
+    status = models.BooleanField(default=False)
+    
 def __str___(self):
     return self.employee.profile.user.username
 

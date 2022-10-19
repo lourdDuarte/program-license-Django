@@ -1,5 +1,4 @@
 from django.db import models
-import employee
 from employee.models import Employee
 # Create your models here.
 
@@ -13,6 +12,7 @@ class RequestsLicense(models.Model):
     date_to = models.CharField(max_length=25)
     description = models.CharField(max_length=100)
     status = models.BooleanField(default=False)
+    created = models.DateField(auto_now_add=True)
 
 
 

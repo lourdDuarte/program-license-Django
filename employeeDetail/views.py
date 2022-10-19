@@ -24,7 +24,7 @@ def search_datail(request):
     return render (request,'data/data_licenses.html',context)
 
 
-
+@login_required
 def update_detail(request,pk):
 
    detail = EmployeeDetail.objects.get(id=pk)
@@ -39,7 +39,7 @@ def update_detail(request,pk):
    context = {'form':form}
    return render (request,'data/update_detail.html',context)
 
-
+@login_required
 def add_detail(request):
     employee = request.user.profile.employee
     all_employee = Employee.objects.all()
@@ -53,7 +53,7 @@ def add_detail(request):
     context = {'detail':all_employee}
     return render (request,'data/new_detail.html',context)
 
-
+@login_required
 def new_detail(request):
     employee = Employee.objects.all()
     context = {'employee':employee}

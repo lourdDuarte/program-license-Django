@@ -40,8 +40,7 @@ INSTALLED_APPS = [
     'profile',
     'employee',
     'employeeDetail',
-    'RequestsLicense',
-    
+    'RequestsLicense', 
 ]
 
 MIDDLEWARE = [

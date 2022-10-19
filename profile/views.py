@@ -1,9 +1,11 @@
 import re
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from profile.models import Profile
 from employee.models import Employee
 from django.contrib.auth import authenticate, login, logout
+
 
 
 # Create your views here.
@@ -68,7 +70,7 @@ def signup_view(request):
         
     return render (request,'register.html')
 
-
+@login_required
 def dashboard_admin(request):
     return render(request, 'perfil/admin/dashboard_admin.html')
 
