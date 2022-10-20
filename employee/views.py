@@ -1,3 +1,5 @@
+from math import remainder
+from pickle import FALSE
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView
@@ -5,16 +7,25 @@ from profile.forms import ProfileForm
 from employee.models import Employee
 from employeeDetail.models import EmployeeDetail
 from django.db.models import Count
+from django.db.models import Sum
 
 
 # Create your views here.
 @login_required
 def dashboard_view(request):
     employee = request.user.profile.employee
-    detail = EmployeeDetail.objects.all().filter(employee=employee).order_by('year')
-    
-
+    detail = EmployeeDetail.objects.filter(employee=employee).order_by('year')
     context = {'detail':detail}
+
+    status = EmployeeDetail.objects.filter(employee=employee, status=True).count()
+    detail_status ={'status': status}
+    context.update(detail_status)
+
+    remainder = EmployeeDetail.objects.filter(employee=employee, status=False).aggregate(total=Sum('remainder'))
+    total_remainder ={'remain': remainder}
+    context.update(total_remainder)
+
+    
 
     return render (request,'perfil/empleado/dashboard.html',context)
 
