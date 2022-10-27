@@ -1,3 +1,0 @@
-if (self.CavalryLogger) { CavalryLogger.start_js_script(document.currentScript); }/*FB_PKG_DELIM*/
-
-__d("AdsLeadGenFormEditorSetCreativesFormTypeReducerPlugin",["AdsLeadGenFormEditorProviderUtils"],function(a,b,c,d,e,f,g){"use strict";a={reduce:function(a,b){return d("AdsLeadGenFormEditorProviderUtils").updateForm(a,b.formID,function(a){return a.set("is_optimized_for_creatives",b.isCreativesForm)})}};b=a;g["default"]=b},98);

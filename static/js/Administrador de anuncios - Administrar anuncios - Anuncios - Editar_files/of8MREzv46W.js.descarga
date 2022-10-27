@@ -1,3 +1,0 @@
-if (self.CavalryLogger) { CavalryLogger.start_js_script(document.currentScript); }/*FB_PKG_DELIM*/
-
-__d("useIsUnmounted",["react"],function(a,b,c,d,e,f,g){"use strict";b=d("react");var h=b.useEffect,i=b.useRef;function a(){var a=i(!1);h(function(){a.current=!1;return function(){a.current=!0}},[]);return a}g["default"]=a},98);

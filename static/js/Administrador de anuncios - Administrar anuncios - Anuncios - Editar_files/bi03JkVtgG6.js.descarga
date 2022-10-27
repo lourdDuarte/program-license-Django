@@ -1,4 +1,0 @@
-if (self.CavalryLogger) { CavalryLogger.start_js_script(document.currentScript); }/*FB_PKG_DELIM*/
-
-__d("AdsAutomaticFlowLiteMediaTypeRadioButtonOptions",["$InternalEnum"],function(a,b,c,d,e,f){"use strict";a=b("$InternalEnum").Mirrored(["IMAGE_OR_VIDEO","CATALOG","MIXED_VALUE"]);c=a;f["default"]=c},66);
-__d("AdsAdgroupCreativeSourceSectionStrings",["fbt"],function(a,b,c,d,e,f,g,h){"use strict";a=h._("Origen del contenido");b=h._("Cat\u00e1logo");c=h._("Subida manual");g.CREATIVE_SOURCE_LABEL=a;g.CATALOG_CREATIVE_SOURCE_LABEL=b;g.MANUAL_UPLOAD_CREATIVE_SOURCE_LABEL=c},98);

@@ -1,3 +1,0 @@
-if (self.CavalryLogger) { CavalryLogger.start_js_script(document.currentScript); }/*FB_PKG_DELIM*/
-
-__d("adsExperimentsLoggerUnmixValue",[],function(a,b,c,d,e,f){"use strict";function a(a){if(a==null)return a;var b=typeof a;if(b==="string")return String(a);if(b==="boolean")return Boolean(a);return b==="number"?Number(a):JSON.stringify(a)}f["default"]=a},66);

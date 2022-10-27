@@ -1,3 +1,0 @@
-if (self.CavalryLogger) { CavalryLogger.start_js_script(document.currentScript); }/*FB_PKG_DELIM*/
-
-__d("NumberFormat",["NumberFormatConfig","intlNumUtils"],function(a,b,c,d,e,f,g){var h=/(\d{3})(?=\d)/g;function i(a){return(""+a).split("").reverse().join("")}function a(a,b){if(Math.abs(a).toString().length<c("NumberFormatConfig").minDigitsForThousandsSeparator)return a.toString();a=i(""+a);return i(a.replace(h,"$1"+b))}function b(a){return d("intlNumUtils").formatNumberWithThousandDelimiters(a)}g.formatIntegerWithDelimiter=a;g.formatInteger=b},98);

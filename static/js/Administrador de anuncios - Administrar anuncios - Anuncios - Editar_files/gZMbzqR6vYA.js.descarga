@@ -1,5 +1,0 @@
-if (self.CavalryLogger) { CavalryLogger.start_js_script(document.currentScript); }/*FB_PKG_DELIM*/
-
-__d("AdsCMsDataCmsContentLoadFailureAction",["Laminar"],function(a,b,c,d,e,f){"use strict";a=b("Laminar").__createAction(function(){return[]},function(){return[]},"ADS_CMS_CONTENT_LOAD_FAILURE");e.exports=a},null);
-__d("AdsCMsDataCmsContentLoadedAction",["Laminar"],function(a,b,c,d,e,f){"use strict";a=b("Laminar").__createAction(function(){return[]},function(){return[]},"ADS_CMS_CONTENT_LOADED");e.exports=a},null);
-__d("AdsCMSDispatcher",["AdsCMsDataCmsContentLoadFailureAction","AdsCMsDataCmsContentLoadedAction","immutable"],function(a,b,c,d,e,f,g){"use strict";function a(a,b,d){a=c("immutable").Map().set(a,{cmsID:a,title:b,content:d});c("AdsCMsDataCmsContentLoadedAction").dispatch({data:a},{line:"34",module:"AdsCMSDispatcher.js"})}function b(a){a=c("immutable").Map().set(a,{cmsID:a});c("AdsCMsDataCmsContentLoadFailureAction").dispatch({data:a},{line:"41",module:"AdsCMSDispatcher.js"})}g.dispatchLoadedCMS=a;g.dispatchCMSLoadError=b},98);

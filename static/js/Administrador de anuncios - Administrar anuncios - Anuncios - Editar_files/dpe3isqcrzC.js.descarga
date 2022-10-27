@@ -1,4 +1,0 @@
-if (self.CavalryLogger) { CavalryLogger.start_js_script(document.currentScript); }/*FB_PKG_DELIM*/
-
-__d("adsUEditorAdgroupExistingPostCTALinkFieldSelector",["AdsUEditorAdgroupExistingPostCTACommonSelectors","adsCreateSelector"],function(a,b,c,d,e,f,g){"use strict";a=c("adsCreateSelector")([d("AdsUEditorAdgroupExistingPostCTACommonSelectors").existingPostCTABulkObjectSelector],function(a){return a.map(function(a){var b=a.bulkDisplayCTALink,c=a.bulkDisplayCTAType,d=a.bulkPostCTALink,e=a.hasDisplayCTALinkError;a=a.pagePostIDs;return{bulkDisplayCTALink:b,bulkDisplayCTAType:c,bulkPostCTALink:d,hasDisplayCTALinkError:e,pagePostIDs:a}})},{name:f.id});b=a;g["default"]=b},98);
-__d("uniqueBy",[],function(a,b,c,d,e,f){"use strict";function a(a,b){a=new Map(a.map(function(a){return[b?b(a):a,a]}));return Array.from(a.values())}f["default"]=a},66);

@@ -1,4 +1,0 @@
-if (self.CavalryLogger) { CavalryLogger.start_js_script(document.currentScript); }/*FB_PKG_DELIM*/
-
-__d("Popup",["isTruthy"],function(a,b,c,d,e,f,g){function a(a,b,d,e){var f=[];c("isTruthy")(b)&&f.push("width="+b);c("isTruthy")(d)&&f.push("height="+d);var g=document.body;if(g!=null&&b!=null&&b!==0&&d!=null&&d!==0){var h="screenX"in window?window.screenX:window.screenLeft,i="screenY"in window?window.screenY:window.screenTop,j="outerWidth"in window?window.outerWidth:g.clientWidth;g="outerHeight"in window?window.outerHeight:g.clientHeight-22;h=Math.floor(h+(j-b)/2);j=Math.floor(i+(g-d)/2.5);f.push("left="+h);f.push("top="+j)}f.push("scrollbars");return window.open(a,e!=null&&e!==""?e:"_blank",f.join(","))}g.open=a},98);
-__d("PopupLink",["DOMEvent","DOMEventListener","Popup"],function(a,b,c,d,e,f){a={listen:function(a,c,d){b("DOMEventListener").add(a,"click",function(e){new(b("DOMEvent"))(e).kill(),b("Popup").open(a.href,c,d)})}};e.exports=a},null);

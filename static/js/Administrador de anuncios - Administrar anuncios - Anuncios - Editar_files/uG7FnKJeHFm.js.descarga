@@ -1,6 +1,0 @@
-if (self.CavalryLogger) { CavalryLogger.start_js_script(document.currentScript); }/*FB_PKG_DELIM*/
-
-__d("AdsGenericFilterOperatorValueCardinality",["keyMirror"],function(a,b,c,d,e,f,g){"use strict";a=c("keyMirror")({SINGLE:null,RANGE:null});b=a;g["default"]=b},98);
-__d("AdsWebAndApp3COUtils",["AdsAPICampaignRecordUtils","AdsPromotedObjectTypes","adsAccountGK","adsAccountQE"],function(a,b,c,d,e,f,g){"use strict";function a(a,b,e){if(a==null||b==null)return!1;else{a=d("AdsAPICampaignRecordUtils").getPromotedObjectType(a.objective,b)===c("AdsPromotedObjectTypes").OMNI_CHANNEL;b=a&&h(e);return b}}function h(a){var b;return((b=c("adsAccountQE")._(a,"3cNXZLsHo:6oA9EmHXXkg",{},{log:!1}))!=null?b:!1)||c("adsAccountGK")._(a,"2bTTYnFbq")}g.is3COPACAllowed=a;g.pass3COPACAccountGK=h},98);
-__d("FacebookReelsOverlayStoreUtils",["AdsAccountStore","adsAccountGK"],function(a,b,c,d,e,f,g){"use strict";function a(){var a;a=(a=c("AdsAccountStore").getSelectedAccount())==null?void 0:a.getValue();return a==null?!1:c("adsAccountGK")._(a,"4W9B04i8g")}g.mergeInstreamAndReelsOverlay=a},98);
-__d("AdsCampaignGroupEffectiveStatus",[],function(a,b,c,d,e,f){"use strict";a=Object.freeze({ACTIVE:"ACTIVE",ARCHIVED:"ARCHIVED",DELETED:"DELETED",PAUSED:"PAUSED",IN_PROCESS:"IN_PROCESS",WITH_ISSUES:"WITH_ISSUES"});f["default"]=a},66);

@@ -1,3 +1,0 @@
-if (self.CavalryLogger) { CavalryLogger.start_js_script(document.currentScript); }/*FB_PKG_DELIM*/
-
-__d("adsUEditorCampaignDebugOriginalBulkSpecSelector",["AdsBulkValueUtils","AdsCampaignSchema","AdsLoadObjectUtils","adsCreateDynamicSelector","adsCreateSelector","adsOriginalCampaignSelector","adsUEditorSelectedCampaignIDsSelector"],function(a,b,c,d,e,f,g){"use strict";a=c("adsCreateSelector")([c("adsUEditorSelectedCampaignIDsSelector"),c("adsCreateDynamicSelector")(c("adsOriginalCampaignSelector"))],function(a,b){a=a.map(b);return d("AdsLoadObjectUtils").all(a).map(function(a){return d("AdsBulkValueUtils").aggregateDeep(c("AdsCampaignSchema"),a)})},{name:f.id+".adsUEditorCampaignDebugOriginalBulkSpecSelector"});b=a;g["default"]=b},98);
